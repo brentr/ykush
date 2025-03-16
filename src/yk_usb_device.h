@@ -34,7 +34,7 @@ limitations under the License.
 
 /**
  * \ingroup yepkit_usb_device_handler
- * 
+ *
  * \brief Handles the USB HID for a given PID and VID.
  */
 class UsbDevice {
@@ -46,15 +46,15 @@ class UsbDevice {
 
                 /**
 		 * Prints to standard output the list of connected devices with PID a VID provided in the class constructor.
-		 * 
+		 *
 		 * \return Number of attached devices.
 		 */
 		int listConnected(void);    //List connected devices
 
 	private:
 
-		unsigned short vid;       
-		unsigned short pid; 
+		unsigned short vid;
+		unsigned short pid;
 #ifndef _LIBUSB_
 		hid_device *handle;
 #endif
@@ -63,12 +63,12 @@ class UsbDevice {
 
 		unsigned char hid_report_out[64];
 		unsigned char hid_report_in[64];
-		char *usb_serial = NULL;
+		char *usb_serial;
 
 };
 
 /*****************************************************************
- * Function: 
+ * Function:
  *
  *  send_usb_msg
  *
@@ -76,7 +76,7 @@ class UsbDevice {
  * Description:
  *
  *  Sends HID report with the data provided in the input buffer
- *  "msg". 
+ *  "msg".
  *
  *
  * Inputs:
@@ -98,13 +98,13 @@ class UsbDevice {
  *  output.
  *
  *
- * Precedences: 
+ * Precedences:
  *
  *  Requires that VENDOR_ID and PRODUCT_ID constants are defined.
  *
  *
  *****************************************************************/
-int send_usb_msg(char *serial, char *msg, char *resp_msg); 
+int send_usb_msg(char *serial, char *msg, char *resp_msg);
 char commands(char *cmd, char *resp, int num);
 char command(char cmd);
 char commandsBySerial(char *iSerial, char *cmd, char *resp, int num);
